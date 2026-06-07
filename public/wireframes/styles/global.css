@@ -1,0 +1,189 @@
+:root {
+    --c-bg: #f8f9fa;
+    --c-white: #ffffff;
+    --c-text-main: #1a1a1a;
+    --c-text-sub: #6c757d;
+    --c-text-muted: #adb5bd;
+    --c-border: #e9ecef;
+    --c-primary: #3b82f6;
+    --c-primary-hover: #2563eb;
+    --c-danger: #ef4444;
+    --c-star-active: #fbbf24;
+    --c-star-inactive: #d1d5db;
+    --c-kakao: #FEE500;
+    --c-naver: #03C75A;
+    --c-apple: #000000;
+    --c-dimmed: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e5e7eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Galaxy S25 Ultra Frame (Approx. 412x892 CSS viewport) */
+.device-wrapper {
+    padding: 40px; 
+    display: inline-block;
+}
+
+.device-frame {
+    width: 412px;
+    height: 892px;
+    background-color: var(--c-white);
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 12px #262626;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Status Bar Mock */
+.status-bar {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-text-main);
+    z-index: 100;
+    background-color: transparent; /* allow bg underneath if needed */
+}
+
+.status-icons {
+    display: flex;
+    gap: 6px;
+}
+
+/* App Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--c-border);
+    background-color: var(--c-white);
+    z-index: 10;
+}
+
+.btn-close, .btn-back {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--c-text-main);
+    cursor: pointer;
+    width: 32px;
+    text-align: left;
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--c-text-main);
+}
+
+.header-placeholder {
+    width: 32px; /* To balance the title to the center */
+}
+
+/* Common Screen Container */
+.screen-content {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Common Buttons */
+.btn-primary {
+    background-color: var(--c-primary);
+    color: var(--c-white);
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.btn-primary:active {
+    background-color: var(--c-primary-hover);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--c-primary);
+    border: 1px solid var(--c-primary);
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+/* Dimmed Background for Modals */
+.dimmed-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--c-dimmed);
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-sheet-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--c-dimmed);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Base Modal Container */
+.modal-container {
+    background-color: var(--c-white);
+    border-radius: 24px;
+    padding: 32px 24px;
+    width: 85%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.bottom-sheet {
+    background-color: var(--c-white);
+    border-radius: 24px 24px 0 0;
+    padding: 32px 24px;
+    width: 100%;
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Spec Dashboard</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  
+  <aside id="sidebar" class="glass">
+    <div class="sidebar-header">
+      <h1>[untitled] Project</h1>
+      <p>UI Specifications & Wireframes</p>
+    </div>
+    <ul id="nav-list">
+      <!-- Generated dynamically -->
+    </ul>
+  </aside>
+
+  <main id="main-content">
+    <div id="preview-col">
+      <div class="device-mockup">
+        <div class="device-notch"></div>
+        <iframe id="preview-iframe" src=""></iframe>
+      </div>
+    </div>
+    
+    <div id="spec-col">
+      <div class="spec-header">
+        <h2 id="spec-title" class="spec-title">Loading...</h2>
+      </div>
+      <div id="spec-body" class="spec-body">
+        <!-- Generated dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <script src="specs.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>

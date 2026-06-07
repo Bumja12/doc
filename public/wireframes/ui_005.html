@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-005: 비회원 가입 유도 팝업</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        /* Mock Feed Background */
+        .feed-screen {
+            background-color: var(--c-bg);
+            padding: 16px;
+        }
+
+        .feed-card {
+            background-color: var(--c-white);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .feed-author {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--c-border);
+            margin-right: 12px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--c-text-main);
+        }
+
+        .author-time {
+            font-size: 13px;
+            color: var(--c-text-sub);
+        }
+
+        .feed-text {
+            font-size: 15px;
+            color: var(--c-text-main);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .feed-actions {
+            display: flex;
+            gap: 16px;
+            border-top: 1px solid var(--c-border);
+            padding-top: 12px;
+        }
+
+        .action-btn {
+            color: var(--c-text-sub);
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .action-btn.active {
+            color: var(--c-primary);
+        }
+
+        /* Modal specific */
+        .modal-container {
+            position: relative;
+            padding-top: 48px;
+        }
+
+        .btn-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--c-text-sub);
+            cursor: pointer;
+        }
+
+        .modal-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 12px;
+        }
+
+        .modal-desc {
+            font-size: 14px;
+            color: var(--c-text-sub);
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .social-login-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .btn-kakao { background-color: var(--c-kakao); color: #3A2929; }
+        .btn-naver { background-color: var(--c-naver); color: var(--c-white); }
+        .btn-apple { background-color: var(--c-apple); color: var(--c-white); }
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <!-- Header Mock -->
+            <div class="header">
+                <button class="btn-back">☰</button>
+                <div class="header-title">우리동네 피드</div>
+                <div class="header-placeholder">🔍</div>
+            </div>
+
+            <!-- Background content (Blurred) -->
+            <div class="screen-content feed-screen" style="filter: blur(2px);">
+                
+                <div class="feed-card">
+                    <div class="feed-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <div class="author-name">동네주민1</div>
+                            <div class="author-time">10분 전</div>
+                        </div>
+                    </div>
+                    <div class="feed-text">오늘 날씨가 너무 좋네요! 다들 산책 나오셨나요? 공원 쪽에 사람 많아요.</div>
+                    <div class="feed-actions">
+                        <div class="action-btn active">❤️ 좋아요 (12)</div>
+                        <div class="action-btn">💬 댓글 (3)</div>
+                    </div>
+                </div>
+
+                <div class="feed-card">
+                    <div class="feed-author">
+                        <div class="author-avatar"></div>
+                        <div>
+                            <div class="author-name">단골손님</div>
+                            <div class="author-time">1시간 전</div>
+                        </div>
+                    </div>
+                    <div class="feed-text">근처에 맛있는 빵집 새로 생겼어요. 꼭 가보세요!</div>
+                    <div class="feed-actions">
+                        <div class="action-btn">🤍 좋아요 (5)</div>
+                        <div class="action-btn">💬 댓글 (0)</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Dimmed Overlay & Modal -->
+            <div class="dimmed-overlay">
+                <div class="modal-container">
+                    <button class="btn-modal-close">✕</button>
+                    
+                    <div class="modal-icon">🔒</div>
+                    <div class="modal-title">로그인이 필요해요</div>
+                    <div class="modal-desc">
+                        좋아요, 댓글 작성 등 더 많은 기능을<br>이용하시려면 이웃으로 가입해 주세요!
+                    </div>
+
+                    <div class="social-login-group">
+                        <button class="social-btn btn-kakao">K</button>
+                        <button class="social-btn btn-naver">N</button>
+                        <button class="social-btn btn-apple"></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

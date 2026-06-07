@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-012: 글로벌 에러 폴백</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .error-screen {
+            background-color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .error-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+        }
+
+        .error-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 16px;
+        }
+
+        .error-desc {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .error-code {
+            background-color: var(--c-bg);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: monospace;
+            color: var(--c-text-muted);
+            margin-bottom: 40px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            margin-top: auto;
+            margin-bottom: 24px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <div class="screen-content error-screen">
+                <div style="flex: 1;"></div> <!-- Spacer -->
+
+                <div class="error-icon">😵</div>
+                <div class="error-title">앗! 오류가 발생했어요</div>
+                <div class="error-desc">
+                    요청하신 작업을 처리하는 중<br>예상치 못한 문제가 발생했습니다.<br>잠시 후 다시 시도해 주세요.
+                </div>
+
+                <div class="error-code">Error Code: E_999999 (Timeout)</div>
+
+                <div style="flex: 1;"></div> <!-- Spacer -->
+
+                <div class="btn-group">
+                    <button class="btn-primary">다시 시도</button>
+                    <button class="btn-outline">홈으로 돌아가기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

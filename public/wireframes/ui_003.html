@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-003: 멀티로그인 모달</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        /* Background screen (UI-001 mockup) */
+        .onboarding-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 40px 24px;
+            background: linear-gradient(180deg, var(--c-white) 0%, #f0fdf4 100%);
+            filter: blur(2px); /* Slight blur for modal effect */
+        }
+        
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .app-logo {
+            width: 80px;
+            height: 80px;
+            background-color: var(--c-primary);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--c-white);
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .modal-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 12px;
+        }
+
+        .modal-desc {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .account-info {
+            background-color: var(--c-bg);
+            padding: 16px;
+            border-radius: 12px;
+            width: 100%;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .account-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .account-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .account-label {
+            color: var(--c-text-sub);
+        }
+
+        .account-value {
+            font-weight: 600;
+            color: var(--c-text-main);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <!-- Background content -->
+            <div class="screen-content onboarding-screen">
+                <div class="hero-section">
+                    <div class="app-logo">A</div>
+                    <div class="hero-title">우리 동네<br>프리미엄 커뮤니티</div>
+                </div>
+            </div>
+
+            <!-- Dimmed Overlay & Modal -->
+            <div class="dimmed-overlay">
+                <div class="modal-container">
+                    <div class="modal-icon">🔄</div>
+                    <div class="modal-title">이미 가입된 계정이 있습니다</div>
+                    <div class="modal-desc">
+                        동일한 본인인증 정보로 가입된 다른 소셜 계정이 있습니다. 계정을 하나로 연동하시겠습니까?
+                    </div>
+
+                    <div class="account-info">
+                        <div class="account-row">
+                            <span class="account-label">가입된 계정</span>
+                            <span class="account-value">카카오 (Kakao)</span>
+                        </div>
+                        <div class="account-row">
+                            <span class="account-label">가입일</span>
+                            <span class="account-value">2024.01.15</span>
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn-primary">기존 계정에 연동</button>
+                        <button class="btn-outline">기존 계정으로 로그인</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

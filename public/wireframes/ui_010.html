@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-010: 지역 선택 드로어</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .feed-screen {
+            background-color: var(--c-bg);
+            padding: 16px;
+            pointer-events: none; /* Mock scroll lock */
+        }
+
+        /* Drawer Overlay */
+        .drawer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--c-dimmed);
+            z-index: 50;
+            display: flex;
+        }
+
+        /* Drawer Panel (Left 70%) */
+        .drawer-panel {
+            width: 75%;
+            height: 100%;
+            background-color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 2px 0 20px rgba(0,0,0,0.15);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        .drawer-header {
+            padding: 40px 24px 16px; /* Accounts for status bar */
+            border-bottom: 1px solid var(--c-border);
+        }
+
+        .drawer-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 4px;
+        }
+
+        .drawer-desc {
+            font-size: 13px;
+            color: var(--c-text-sub);
+        }
+
+        .drawer-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .region-item {
+            border-bottom: 1px solid var(--c-border);
+        }
+
+        .region-header {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--c-text-main);
+            cursor: pointer;
+        }
+
+        .region-header.expanded {
+            background-color: var(--c-bg);
+            color: var(--c-primary);
+        }
+
+        .arrow-icon {
+            font-size: 12px;
+            color: var(--c-text-muted);
+            transition: transform 0.2s;
+        }
+
+        .region-header.expanded .arrow-icon {
+            transform: rotate(180deg);
+            color: var(--c-primary);
+        }
+
+        .region-sublist {
+            display: none;
+            background-color: var(--c-white);
+        }
+
+        .region-item.active .region-sublist {
+            display: block;
+        }
+
+        .sub-item {
+            padding: 12px 24px 12px 40px;
+            font-size: 15px;
+            color: var(--c-text-sub);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sub-item.selected {
+            color: var(--c-primary);
+            font-weight: 600;
+        }
+
+        .check-icon {
+            color: var(--c-primary);
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <!-- Background feed -->
+            <div class="screen-content feed-screen" style="filter: blur(1px);">
+                <div style="height: 120px; background: white; border-radius: 12px; margin-bottom: 16px;"></div>
+                <div style="height: 180px; background: white; border-radius: 12px; margin-bottom: 16px;"></div>
+                <div style="height: 120px; background: white; border-radius: 12px;"></div>
+            </div>
+
+            <!-- Drawer Overlay -->
+            <div class="drawer-overlay">
+                <div class="drawer-panel">
+                    <div class="drawer-header">
+                        <div class="drawer-title">동네 선택</div>
+                        <div class="drawer-desc">활동할 동네를 선택해 주세요.</div>
+                    </div>
+                    
+                    <div class="drawer-content">
+                        <!-- Region 1: Seoul (Expanded) -->
+                        <div class="region-item active">
+                            <div class="region-header expanded">
+                                <span>서울특별시</span>
+                                <span class="arrow-icon">▼</span>
+                            </div>
+                            <div class="region-sublist">
+                                <div class="sub-item">강남구</div>
+                                <div class="sub-item">서초구</div>
+                                <div class="sub-item selected">
+                                    송파구 <span class="check-icon">✓</span>
+                                </div>
+                                <div class="sub-item">마포구</div>
+                                <div class="sub-item">용산구</div>
+                            </div>
+                        </div>
+
+                        <!-- Region 2: Gyeonggi -->
+                        <div class="region-item">
+                            <div class="region-header">
+                                <span>경기도</span>
+                                <span class="arrow-icon">▼</span>
+                            </div>
+                        </div>
+
+                        <!-- Region 3: Busan -->
+                        <div class="region-item">
+                            <div class="region-header">
+                                <span>부산광역시</span>
+                                <span class="arrow-icon">▼</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-002: 서비스 이용약관 동의</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .terms-screen {
+            background-color: var(--c-white);
+        }
+
+        .content-area {
+            padding: 24px;
+            flex: 1;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            margin-bottom: 32px;
+        }
+
+        .terms-group {
+            margin-bottom: 32px;
+        }
+
+        .checkbox-row {
+            display: flex;
+            align-items: center;
+            padding: 16px 0;
+            cursor: pointer;
+        }
+
+        .checkbox-row.all-agree {
+            border-bottom: 1px solid var(--c-border);
+            margin-bottom: 8px;
+            padding-bottom: 24px;
+        }
+
+        .checkbox-row.all-agree .term-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--c-text-main);
+        }
+
+        .checkbox-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--c-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            color: transparent;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .checkbox-icon.checked {
+            background-color: var(--c-primary);
+            border-color: var(--c-primary);
+            color: var(--c-white);
+        }
+
+        .term-content {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .term-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--c-text-main);
+        }
+
+        .term-req {
+            font-size: 14px;
+            color: var(--c-primary);
+            margin-right: 6px;
+            font-weight: 700;
+        }
+
+        .term-opt {
+            font-size: 14px;
+            color: var(--c-text-muted);
+            margin-right: 6px;
+        }
+
+        .btn-view {
+            color: var(--c-text-muted);
+            font-size: 14px;
+            text-decoration: underline;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .bottom-action {
+            padding: 24px;
+            border-top: 1px solid var(--c-border);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <div class="header">
+                <button class="btn-back">←</button>
+                <div class="header-placeholder"></div>
+            </div>
+
+            <div class="screen-content terms-screen">
+                <div class="content-area">
+                    <div class="page-title">환영합니다!</div>
+                    <div class="page-subtitle">서비스 이용을 위해 약관에 동의해 주세요.</div>
+
+                    <div class="terms-group">
+                        <div class="checkbox-row all-agree">
+                            <div class="checkbox-icon checked">✓</div>
+                            <div class="term-content">
+                                <span class="term-title">약관 전체 동의</span>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <div class="checkbox-icon checked">✓</div>
+                            <div class="term-content">
+                                <div><span class="term-req">[필수]</span><span class="term-title">서비스 이용약관</span></div>
+                                <button class="btn-view">보기</button>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <div class="checkbox-icon checked">✓</div>
+                            <div class="term-content">
+                                <div><span class="term-req">[필수]</span><span class="term-title">개인정보 수집 및 이용</span></div>
+                                <button class="btn-view">보기</button>
+                            </div>
+                        </div>
+
+                        <div class="checkbox-row">
+                            <div class="checkbox-icon">✓</div>
+                            <div class="term-content">
+                                <div><span class="term-opt">[선택]</span><span class="term-title">마케팅 정보 수신 동의</span></div>
+                                <button class="btn-view">보기</button>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-row">
+                            <div class="checkbox-icon">✓</div>
+                            <div class="term-content">
+                                <div><span class="term-opt">[선택]</span><span class="term-title">위치기반 서비스 이용약관</span></div>
+                                <button class="btn-view">보기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bottom-action">
+                    <button class="btn-primary">동의하고 시작하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

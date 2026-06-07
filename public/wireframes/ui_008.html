@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-008: 기기 권한 안내</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .perm-screen {
+            background-color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .perm-header {
+            padding: 32px 24px 16px;
+        }
+
+        .perm-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 8px;
+        }
+
+        .perm-subtitle {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            line-height: 1.5;
+        }
+
+        .perm-list {
+            flex: 1;
+            padding: 0 24px;
+            overflow-y: auto;
+        }
+
+        .perm-item {
+            display: flex;
+            margin-bottom: 24px;
+        }
+
+        .perm-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--c-bg);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            margin-right: 16px;
+            color: var(--c-primary);
+        }
+
+        .perm-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .perm-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 4px;
+        }
+
+        .perm-req {
+            font-size: 12px;
+            color: var(--c-primary);
+            margin-left: 6px;
+            font-weight: 700;
+        }
+
+        .perm-opt {
+            font-size: 12px;
+            color: var(--c-text-muted);
+            margin-left: 6px;
+        }
+
+        .perm-desc {
+            font-size: 14px;
+            color: var(--c-text-sub);
+            line-height: 1.4;
+        }
+
+        .perm-footer {
+            padding: 24px;
+            border-top: 1px solid var(--c-border);
+        }
+
+        .perm-notice {
+            font-size: 12px;
+            color: var(--c-text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <div class="screen-content perm-screen">
+                <div class="perm-header">
+                    <div class="perm-title">앱 접근 권한 안내</div>
+                    <div class="perm-subtitle">서비스의 원활한 이용을 위해 아래 권한들의 허용이 필요합니다.</div>
+                </div>
+
+                <div class="perm-list">
+                    <div class="perm-item">
+                        <div class="perm-icon">🔔</div>
+                        <div class="perm-text">
+                            <div class="perm-name">알림 <span class="perm-req">(필수)</span></div>
+                            <div class="perm-desc">중요한 공지 및 이웃의 메시지를 수신하기 위해 사용됩니다.</div>
+                        </div>
+                    </div>
+
+                    <div class="perm-item">
+                        <div class="perm-icon">📍</div>
+                        <div class="perm-text">
+                            <div class="perm-name">위치 <span class="perm-opt">(선택)</span></div>
+                            <div class="perm-desc">현재 내 동네를 인증하고 이웃과 소통하기 위해 사용됩니다.</div>
+                        </div>
+                    </div>
+
+                    <div class="perm-item">
+                        <div class="perm-icon">📷</div>
+                        <div class="perm-text">
+                            <div class="perm-name">카메라/사진 <span class="perm-opt">(선택)</span></div>
+                            <div class="perm-desc">게시글 사진 첨부 및 프로필 이미지 변경을 위해 사용됩니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="perm-footer">
+                    <div class="perm-notice">선택 권한은 허용하지 않아도 해당 기능 외 서비스 이용이 가능합니다. 권한 설정은 기기 설정에서 변경할 수 있습니다.</div>
+                    <button class="btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

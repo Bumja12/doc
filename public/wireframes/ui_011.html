@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-011: 메인 피드 화면</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .feed-screen {
+            background-color: var(--c-bg);
+            padding: 0;
+            position: relative; /* For FAB */
+        }
+
+        .header {
+            padding: 12px 20px;
+            border-bottom: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .region-drop {
+            font-size: 14px;
+            color: var(--c-text-sub);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            font-size: 24px;
+            color: var(--c-text-main);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .noti-dot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 6px;
+            background-color: var(--c-danger);
+            border-radius: 50%;
+        }
+
+        .feed-list {
+            padding: 12px 16px;
+            padding-bottom: 100px; /* Space for FAB */
+        }
+
+        .feed-card {
+            background-color: var(--c-white);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .feed-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #dbeafe; /* Light blue */
+            margin-right: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--c-text-main);
+        }
+
+        .author-meta {
+            font-size: 12px;
+            color: var(--c-text-sub);
+            margin-top: 2px;
+        }
+
+        .more-btn {
+            color: var(--c-text-muted);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .feed-image {
+            width: 100%;
+            height: 180px;
+            background-color: var(--c-border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--c-text-muted);
+            font-size: 40px;
+        }
+
+        .feed-text {
+            font-size: 15px;
+            color: var(--c-text-main);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .feed-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            background-color: #f1f5f9;
+            color: var(--c-primary);
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .feed-actions {
+            display: flex;
+            gap: 16px;
+            border-top: 1px solid var(--c-border);
+            padding-top: 12px;
+        }
+
+        .action-btn {
+            color: var(--c-text-sub);
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            background-color: var(--c-primary);
+            color: var(--c-white);
+            width: 56px;
+            height: 56px;
+            border-radius: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            cursor: pointer;
+            z-index: 10;
+            transition: transform 0.2s;
+        }
+
+        .fab:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <!-- Header -->
+            <div class="header">
+                <div class="header-title">
+                    우리동네 <span class="region-drop">송파구 ▼</span>
+                </div>
+                <div class="header-icons">
+                    <div class="icon-btn">🔍</div>
+                    <div class="icon-btn">
+                        🔔
+                        <div class="noti-dot"></div>
+                    </div>
+                    <div class="icon-btn">☰</div>
+                </div>
+            </div>
+
+            <div class="screen-content feed-screen">
+                <div class="feed-list">
+                    
+                    <!-- Feed Item 1 -->
+                    <div class="feed-card">
+                        <div class="feed-author">
+                            <div class="author-info">
+                                <div class="author-avatar">🐶</div>
+                                <div>
+                                    <div class="author-name">강아지산책러</div>
+                                    <div class="author-meta">송파동 · 10분 전</div>
+                                </div>
+                            </div>
+                            <div class="more-btn">•••</div>
+                        </div>
+                        <div class="feed-text">올림픽공원 산책하기 너무 좋은 날씨네요! 같이 강아지 산책하실 이웃 계신가요?</div>
+                        <div class="feed-tags">
+                            <div class="tag">#반려동물</div>
+                            <div class="tag">#산책</div>
+                        </div>
+                        <div class="feed-actions">
+                            <div class="action-btn" style="color: var(--c-danger);">❤️ 12</div>
+                            <div class="action-btn">💬 5</div>
+                        </div>
+                    </div>
+
+                    <!-- Feed Item 2 (with Image) -->
+                    <div class="feed-card">
+                        <div class="feed-author">
+                            <div class="author-info">
+                                <div class="author-avatar" style="background-color: #fef08a;">☕️</div>
+                                <div>
+                                    <div class="author-name">단골손님</div>
+                                    <div class="author-meta">방이동 · 1시간 전</div>
+                                </div>
+                            </div>
+                            <div class="more-btn">•••</div>
+                        </div>
+                        <div class="feed-image">📷</div>
+                        <div class="feed-text">새로 오픈한 베이커리 다녀왔어요! 소금빵이 정말 맛있네요. 강력 추천합니다.</div>
+                        <div class="feed-actions">
+                            <div class="action-btn">🤍 34</div>
+                            <div class="action-btn">💬 12</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- FAB -->
+                <div class="fab">✏️</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

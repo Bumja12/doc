@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-007: 강제 업데이트</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .update-screen {
+            background-color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .update-icon {
+            font-size: 64px;
+            margin-bottom: 24px;
+            color: var(--c-primary);
+        }
+
+        .update-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 16px;
+        }
+
+        .update-desc {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .version-info {
+            background-color: var(--c-bg);
+            padding: 16px;
+            border-radius: 12px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .v-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .v-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .v-label {
+            color: var(--c-text-sub);
+        }
+
+        .v-value {
+            font-weight: 600;
+            color: var(--c-text-main);
+        }
+
+        .update-btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <div class="screen-content update-screen">
+                <div class="update-icon">🚀</div>
+                <div class="update-title">앱 업데이트 안내</div>
+                <div class="update-desc">
+                    더욱 안정적이고 편리한 서비스 제공을 위해<br>최신 버전으로 업데이트가 필요합니다.<br>지금 바로 업데이트해 보세요!
+                </div>
+
+                <div class="version-info">
+                    <div class="v-row">
+                        <span class="v-label">현재 버전</span>
+                        <span class="v-value">v1.0.3</span>
+                    </div>
+                    <div class="v-row">
+                        <span class="v-label">최신 버전</span>
+                        <span class="v-value">v1.2.0</span>
+                    </div>
+                </div>
+
+                <div class="update-btn">
+                    <button class="btn-primary">스토어로 이동</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

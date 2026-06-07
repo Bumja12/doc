@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-004: 본인인증 정보 수정 제한</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .profile-screen {
+            background-color: var(--c-bg);
+        }
+
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 32px 24px;
+            background-color: var(--c-white);
+            margin-bottom: 12px;
+        }
+
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--c-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .section {
+            background-color: var(--c-white);
+            padding: 24px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            font-size: 13px;
+            color: var(--c-text-sub);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid var(--c-border);
+            border-radius: 12px;
+            font-size: 16px;
+            color: var(--c-text-main);
+            background-color: var(--c-white);
+            font-family: inherit;
+        }
+
+        .form-input.disabled {
+            background-color: #f1f5f9;
+            color: var(--c-text-muted);
+            pointer-events: none;
+            border: none;
+        }
+
+        .help-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: var(--c-border);
+            color: var(--c-text-sub);
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .tooltip-bubble {
+            position: absolute;
+            top: 450px;
+            right: 24px;
+            background-color: var(--c-text-main);
+            color: var(--c-white);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.4;
+            max-width: 250px;
+            z-index: 60;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            /* Tooltip arrow */
+        }
+
+        .tooltip-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            right: 24px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent var(--c-text-main) transparent;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <div class="header">
+                <button class="btn-back">←</button>
+                <div class="header-title">내 정보 관리</div>
+                <div class="header-placeholder"></div>
+            </div>
+
+            <div class="screen-content profile-screen">
+                
+                <div class="profile-header">
+                    <div class="profile-img">👤</div>
+                    <button class="btn-outline" style="padding: 8px 16px; font-size: 13px; width: auto; border-radius: 20px;">사진 변경</button>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">기본 정보</div>
+                    
+                    <div class="form-group">
+                        <div class="form-label">닉네임</div>
+                        <input type="text" class="form-input" value="행복한이웃">
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">본인인증 정보 (수정 불가)</div>
+                    
+                    <div class="form-group">
+                        <div class="form-label">
+                            <span>이름</span>
+                            <span class="help-icon">?</span>
+                        </div>
+                        <input type="text" class="form-input disabled" value="홍*동" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-label">
+                            <span>휴대폰 번호</span>
+                        </div>
+                        <input type="text" class="form-input disabled" value="010-****-1234" readonly>
+                    </div>
+                </div>
+
+                <!-- Tooltip Overlay Mock -->
+                <div class="tooltip-bubble">
+                    본인인증 정보는 안전을 위해 임의로 수정할 수 없습니다. 고객센터로 문의해 주세요.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI-009: 네트워크 오류</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/global.css">
+    <style>
+        .splash-screen {
+            background-color: var(--c-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .splash-logo {
+            width: 100px;
+            height: 100px;
+            background-color: var(--c-white);
+            border-radius: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--c-primary);
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        .modal-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--c-text-main);
+            margin-bottom: 12px;
+        }
+
+        .modal-desc {
+            font-size: 15px;
+            color: var(--c-text-sub);
+            line-height: 1.5;
+            margin-bottom: 32px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .btn-row button {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="device-wrapper">
+        <div class="device-frame">
+            <div class="status-bar" style="color: var(--c-white);">
+                <span>09:41</span>
+                <div class="status-icons"><span>📶</span><span>🔋</span></div>
+            </div>
+
+            <!-- Background content -->
+            <div class="screen-content splash-screen" style="filter: blur(2px);">
+                <div class="splash-logo">A</div>
+            </div>
+
+            <!-- Dimmed Overlay & Modal -->
+            <div class="dimmed-overlay">
+                <div class="modal-container">
+                    <div class="modal-icon">📡</div>
+                    <div class="modal-title">네트워크 연결 끊김</div>
+                    <div class="modal-desc">
+                        인터넷 연결 상태가 불안정합니다.<br>Wi-Fi 또는 데이터 연결을 확인해 주세요.
+                    </div>
+
+                    <div class="btn-row">
+                        <button class="btn-outline">앱 종료</button>
+                        <button class="btn-primary">다시 시도</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
